@@ -1,5 +1,5 @@
 <launch>
-	<arg name="rviz" default="true" />
+	<arg name="rviz" default="false" />
 
 	<param name="voxel_size" type="double" value="1" />
 	<param name="file_path" type="string" value="$(find balm2)" />

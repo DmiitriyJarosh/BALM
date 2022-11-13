@@ -1,4 +1,10 @@
-# BALM 2.0
+# BALM 2.0 ADOPTION
+
+## Docker image
+You can find Dockerfile in project. Build it with `docker build -t balm:1.0 .`. Already built docker image was uploaded to Dockerhub and can be found at [https://hub.docker.com/repository/docker/dmitrii12/balm](https://hub.docker.com/repository/docker/dmitrii12/balm) .
+To run Docker image use `docker run --rm --mount src=/pathOfInputFolder,target=/catkin_ws/src/BALM/datas/benchmark_realworld,type=bind --mount src=/pathOfOutputFolder,target=/catkin_ws/src/BALM/output,type=bind balm:1.0`.
+Format of Docker input: put all pcds with names `fullx.pcd` to input folder, where `x` is the frame number starting from 0. Also add file `alidarPose.csv` with initial poses for each pcd in format of transform matrix (4x4, each row on its own line).
+Format of Docker output: result of the algorithm will be placed to file `pose_result.csv` in output folder. Format of poses is `x y z qx qy qz qw` (like in Tum but without timestamp).
 
 ## Efficient and Consistent Bundle Adjustment on Lidar Point Clouds
 

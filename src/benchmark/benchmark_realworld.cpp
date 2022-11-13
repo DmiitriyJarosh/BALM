@@ -35,7 +35,6 @@ int read_pose(vector<double> &tims, PLM(3) &rots, PLV(3) &poss, string prename)
 {
   string readname = prename + "alidarPose.csv";
 
-  cout << readname << endl;
   ifstream inFile(readname);
 
   if(!inFile.is_open())
@@ -224,8 +223,6 @@ int main(int argc, char **argv)
     string output_path = output_pre_path + "/pose_start.csv";
     data_show(x_buf, pl_fulls, output_path);
     printf("Initial point cloud is published.\n");
-    printf("Input '1' to start optimization...\n");
-    int a; cin >> a; if(a==0) exit(0);
     
     BALM2 opt_lsv;
     opt_lsv.damping_iter(x_buf, voxhess);
@@ -245,7 +242,7 @@ int main(int argc, char **argv)
   data_show(x_buf, pl_fulls, output_path);
   printf("Refined point cloud is published.\n");
 
-  ros::spin();
+  // ros::spin();
   return 0;
 
 }
